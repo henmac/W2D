@@ -136,7 +136,7 @@ def display_clothing_suggestion(index, forecast_data, city_name):
 
     suggestion, message, image_urls = clothing_suggestion(temp, weather_id)
 
-    st.write(f"<h1 style='color:orange; font-size:42px;'>{message}</h1>", unsafe_allow_html=True)
+    st.write(f"<h1 style='color:#0784b5; font-size:40px;'>{message}</h1>", unsafe_allow_html=True)
     st.write(f"<h3>Suggested clothing: {suggestion}</h3>", unsafe_allow_html=True)
     # Display clothing images
     if image_urls and len(image_urls) > 0:  # Ensure image_urls is not None or empty
@@ -158,11 +158,11 @@ def display_clothing_suggestion(index, forecast_data, city_name):
     st.write(f"<h4 style='color:gray;'>Weather conditions: {weather_condition}</h4>", unsafe_allow_html=True)
 
 # Sidebar for the title
-st.sidebar.title("WEATHER2DAY")
+st.sidebar.title("Weather2Day")
 
 # Use st.form to capture city input and enter event
 with st.sidebar.form(key='city_form'):
-    city_name = st.text_input('Hey there! Where do you want to go today?', '')
+    city_name = st.text_input('Ready to head out? Tell me where you\'re going, and I\'ll hook you up with weather-proof advice!', '')
     submit_button = st.form_submit_button(label='Get Weather and Outfits')
    
     # Function to convert temperature
@@ -185,7 +185,7 @@ if submit_button:
         st.session_state.city_name = city_name
         st.session_state.selected_time_index = 0  # Reset time index on new city selection
     else:
-        st.write("<h3 style='color:red;'>City not found. Please try again.</h3>", unsafe_allow_html=True)
+        st.write("<h3 style='color:#627e75;'>City not found. Please try again.</h3>", unsafe_allow_html=True)
 
 # Ensure forecast data is available in the session state before continuing
 if 'forecast_data' in st.session_state:
@@ -214,4 +214,4 @@ if 'forecast_data' in st.session_state:
         display_clothing_suggestion(st.session_state.selected_time_index, forecast_data, city_name)
 
 else:
-    st.write("<h3 style='color:red;'>City not found. Please try again.</h3>", unsafe_allow_html=True)
+    st.write("<h3 style='color:#627e75;'>City not found. Please try again.</h3>", unsafe_allow_html=True)
