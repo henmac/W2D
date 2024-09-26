@@ -162,7 +162,7 @@ st.sidebar.title("WEATHER2DAY")
 
 # Use st.form to capture city input and enter event
 with st.sidebar.form(key='city_form'):
-    city_name = st.text_input('Hey there! Where do you want to go today?', 'Gothenburg')
+    city_name = st.text_input('Hey there! Where do you want to go today?', '')
     submit_button = st.form_submit_button(label='Get Weather and Outfits')
    
     # Function to convert temperature
